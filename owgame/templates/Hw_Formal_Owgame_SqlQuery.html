@@ -1,0 +1,112 @@
+{% extends "owindex.html" %}
+{% load myfilters %}
+
+{% block page %}
+<div class="container">
+    <center>
+        {% if messages %}
+        <div class="alert alert-warning">
+            {% for message in messages %}
+            <p>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message}}
+            </p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <h3>
+            <font color="red">
+                海外游戏正式服数据查询
+            </font>
+        </h3>
+    </center>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <form role="form" id="contact-form" class="contact-form" method="post">
+            {% csrf_token  %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group"">
+                    <div id="list">
+                    {% for db in owdbList %}
+
+                        <div class="checkbox checkbox-inline checkbox-info">
+                            <input type="checkbox" class="styled" name="dbcheckbox" id="{{ db.serverid }}" value="{{ db.serverid }}">
+                            <label for="{{ db.serverid }}">
+                                {{ db.servername }}
+                            </label>
+                        </div>
+
+                        {% if  forloop.counter|divisibleby:10 %}
+                            <br>
+                        {% endif %}
+
+                    {% endfor %}
+                    </div>
+
+                        <br>
+                        <input type="checkbox" id="all">
+                        <input type="button" value="全选" class="btn" id="selectAll">
+                        <input type="button" value="全不选" class="btn" id="unSelect">
+                        <input type="button" value="反选" class="btn" id="reverse">
+                        <input type="button" value="获得选中的所有值" class="btn" id="getValue">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <!--<input type="text" class="form-control" name="sqlform">-->
+                        {{ form.SqlCmd|add_class:"form-control" }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn main-btn pull-left">
+                        执行查询
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="panel panel-default" style="margin-top: 40px">
+            <div class="panel-heading">
+                <button type="button" class="btn btn-info" data-clipboard-action="copy" data-clipboard-target=".panel-body">复制查询结果</button>
+            </div>
+            <div class="panel-body" >
+                <h4 style="color: darkblue">执行的语句：{{ SqlCmd }}</h4>
+
+                {% if sqldic %}
+                    {% for key,value in sqldic.items %}
+                    <P style="color: red">查询 OW_{{ key }} 服的数据：
+                        <br>
+                        {% if value %}
+                            {% for sql in  value %}
+                                <div style="color: red">**************** {{ forloop.counter }}. row *****************</div>
+                                {% for key,value in sql.items %}
+
+                                    {{ key }}:{{ value }}<br>
+                                {% endfor %}
+                    </p>
+                            {% endfor %}<br><br>
+                        {% else %}
+                            <p>Empty set (0.00 sec).</p><br><br>
+                        {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+
+            </div>
+        </div>
+        </div>
+
+    </div>
+<div>
+
+{% endblock %}

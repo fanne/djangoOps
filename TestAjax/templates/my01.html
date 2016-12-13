@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $('#test').load('static/2d33.txt',function(responseTxt,statusTxt,xhr){
+        if(statusTxt=="success")
+            alert("成功");
+        if(statusTxt=="error")
+            alert("Error: "+xhr.status+": "+xhr.statusText);
+    });
+
+  })
+})
+</script>
+</head>
+
+<body>
+
+<h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
+<button id="btn1" type="button">获得外部的内容</button>
+
+</body>
+</html>

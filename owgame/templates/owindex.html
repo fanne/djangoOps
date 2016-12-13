@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row affix-row">
+    <div class="col-sm-3 col-md-2 affix-sidebar">
+        <div class="sidebar-nav">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                    </button>
+                    <span class="visible-xs navbar-brand">
+                        Sidebar menu
+                    </span>
+                </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav" id="sidenav01">
+                        <li class="active">
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01"
+                            class="collapsed">
+                                <h4>
+                                    控制面板
+                                </h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01"
+                            class="collapsed">
+                                <span class="glyphicon glyphicon-cloud">
+                                </span>
+                                数据查询
+                                <span class="caret pull-right">
+                                </span>
+                            </a>
+                            <div class="collapse" id="toggleDemo" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                    <li>
+                                        <a href="{% url 'ow:Hw_Formal_Owgame_SqlQuery' %}">
+                                            海外正式游戏服
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'ow:HW_Cross_sqlQuery' %}">
+                                            海外正式跨服
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'ow:HW_Server_Test_sqlQuery' %}">
+                                            海外测试服
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'ow:GN_Server_Test_sqlQuery' %}">
+                                            国内测试服
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01"
+                            class="collapsed">
+                                <span class="glyphicon glyphicon-inbox">
+                                </span>
+                                执行补丁操作
+                                <span class="caret pull-right">
+                                </span>
+                            </a>
+                            <div class="collapse" id="toggleDemo2" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                    <li>
+                                        <a href="#">
+                                            海外正式游戏服
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            海外正式全服
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            海外正式跨服
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01"
+                            class="collapsed">
+                                <span class="glyphicon glyphicon-download-alt">
+                                </span>
+                                版本更新
+                                <span class="caret pull-right">
+                                </span>
+                            </a>
+                            <div class="collapse" id="toggleDemo3" style="height: 0px;">
+                                <ul class="nav nav-list">
+                                    <li>
+                                        <a href="#">
+                                            海外正式游戏服更新
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            海外正式全服更新
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            海外正式跨服更新
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="{% url 'ow:initServer' %}">
+                                <span class="glyphicon glyphicon-tasks">
+                                </span>
+                                服务器初始化
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'ow:addServer' %}">
+                                <span class="glyphicon glyphicon-saved">
+                                </span>
+                                添加新服
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                                WithBadges
+                                <span class="badge pull-right">
+                                    42
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="glyphicon glyphicon-cog">
+                                </span>
+                                PreferencesMenu
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+{% block page %}
+<p>hhhhhh</p>
+{% endblock %}
