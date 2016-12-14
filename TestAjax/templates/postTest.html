@@ -3,25 +3,19 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>jquery ajax的post功能测试</title>
-
     <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
-
     <script>
     $(document).ready(function(){
-      $("#btn1").click(function(){
-        $.ajax({
-                type:"POST",
-                url:"posttest",
-                data:$("#mypost").serialize,
-                success:function(data){alert(data);},
-                error:function(xhr,responseTxt,statusTxt){alert("Errordddd: "+xhr.status+": "+xhr.statusText)}
-            })
+        $("#btn13").click(function(){
+            console.log("ddddddd");
+            alert("weeweww");
         });
-
-      })
-    })
+    });
     </script>
+
+
 </head>
+
 <body>
 <h3>jquery ajax的post功能测试</h3>
 <form method="POST" id="mypost">
@@ -29,8 +23,8 @@
 <input type="text" name="name" id="name"><br>
 <p>年龄：</p>
 <input type="text" name="age" id="age"><br><br>
-<input type="submit" value="Submit" id="btn1">
+<input type="submit" value="Submit" id="btn13">
 </form>
-
 </body>
+
 </html>

@@ -2,6 +2,16 @@
 {% load myfilters %}
 {% block page %}
 <div class="container">
+{% if messages %}
+        <div class="alert alert-warning">
+            {% for message in messages %}
+            <p>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message}}
+            </p>
+            {% endfor %}
+        </div>
+        {% endif %}
 <h3><center>添加新服</center></h3>
 </div>
 <br>

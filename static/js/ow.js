@@ -59,6 +59,19 @@ function allchk(){
 }
 
 
+//添加新服
+$(document).ready(function(){
+    $("#addserverform").click(function(){
+        newserver = $("#id_AddNum").val()
+        if(confirm("确认添加新服"+newserver+"?")){
+            return true;
+        }else{
+            return false;
+        }
+    })
+})
+
+
 //数据查询
 //var xmlhttp
 //if (windows.XMLHttpRequest)

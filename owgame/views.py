@@ -91,9 +91,11 @@ def addServer(request):
         addserverfrom = AddServerForm(request.POST)
         if addserverfrom.is_valid():
             serverid = addserverfrom.cleaned_data['AddNum']
-            pingTest.delay(serverid)
+            # pingTest.delay(serverid)
+            NewServer.delay(serverid)
             ##异步添加新服
-            # NewServer.delay(serverid)
+            # NewServer.apply_async(request,serverid)
+
         return redirect('owgame.views.addServer')
 
     else:
