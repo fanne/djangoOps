@@ -29,7 +29,7 @@ SECRET_KEY = 'cjq%!qvyor*84yldkz)g2)wv^z&*+e-3eji#xmj7xkdhvcnf_5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -228,6 +228,14 @@ LOGGING = {
             'backupCount':'5',
             'formatter':'verbose',
         },
+        'updateVersion':{
+            'level':'INFO',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename':'logs/updateVersion.log',
+            'maxBytes':'1024*1024*5',
+            'backupCount':'5',
+            'formatter':'verbose',
+        },
 
     },
     'loggers': {
@@ -255,7 +263,12 @@ LOGGING = {
             'handlers':['tasks','console'],
             'level':'DEBUG',
             'propagate':True,
-        }
+        },
+        'owgame.svnRsync':{
+            'handlers':['updateVersion','console'],
+            'level':'DEBUG',
+            'propagate':True,
+        },
     }
 }
 

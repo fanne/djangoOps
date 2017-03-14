@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'GN_Server_Test_sqlQuery/',views.GN_Server_Test_sqlQuery,name='GN_Server_Test_sqlQuery'),
 
     ##版本更新
-    url(r'update/',views.updateVersion,name='update'),
+    url(r'Hw_Formal_Owgame_Update/',views.Hw_Formal_Owgame_Update,name='Hw_Formal_Owgame_Update'),
 
     ##打补丁
     url(r'patch/',views.patch,name='patch'),

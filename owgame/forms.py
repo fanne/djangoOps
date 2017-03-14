@@ -12,3 +12,6 @@ class SqlQueryForm(forms.Form):
 
 class AddServerForm(forms.Form):
     AddNum = forms.IntegerField(label='AddServer')
+
+class VersionForm(forms.Form):
+    version = forms.IntegerField(label="Version Num")

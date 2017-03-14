@@ -20,5 +20,14 @@ def postTest():
     print name,age
     return render_template("postTest.html")
 
+@app.route('/test01',methods=["GET","POST"])
+def test01():
+    return render_template("test01.html")
+
+
+@app.route('/test02',methods=["GET","POST"])
+def test02():
+    return render_template("test02.html")
+
 if __name__ == '__main__':
     app.run(debug=True)

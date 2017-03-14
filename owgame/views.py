@@ -7,7 +7,7 @@ from django.contrib import messages
 
 # from models import hw_formal_owgame
 from owgame.models import hw_formal_owgame
-from owgame.forms import SqlQueryForm,AddServerForm
+from owgame.forms import SqlQueryForm,AddServerForm,VersionForm
 from owgame.sqlquery import runSql
 from owgame.tasks import pingTest,NewServer
 
@@ -74,9 +74,24 @@ def GN_Server_Test_sqlQuery(request):
 
 
 
+##海外正式服更新
+def Hw_Formal_Owgame_Update(request):
+    # versionform = VersionForm()
+    # if versionform.validate_on_submit():
+    #     request.session['proId'] = request.form.get('selectid')
+    #     request.session['versionNum'] = versionform.version.data
+    #     proId = request.session.get('proId')
+    #     versionNum = request.session.get('versionNum')
+    #
+    #     # app = current_app._get_current_object()
+    #     # startRsync(app,proDic,proId,versionNum)
+    #     return redirect('owgame.views.Hw_Formal_Owgame_Update')
+    # return render_to_response('Hw_Formal_Owgame_Update.html',
+    #                        prodict = pronameDict(),
+    #                        versionform = versionform)
 
-def updateVersion(request):
-    return HttpResponse('This is version updating Page')
+    return render_to_response("Hw_Formal_Owgame_Update.html")
+
 
 def patch(request):
     return HttpResponse('This is patch Page')
@@ -92,9 +107,10 @@ def addServer(request):
         if addserverfrom.is_valid():
             serverid = addserverfrom.cleaned_data['AddNum']
             # pingTest.delay(serverid)
-            NewServer.delay(serverid)
+
             ##异步添加新服
-            # NewServer.apply_async(request,serverid)
+            NewServer.delay(serverid)
+
 
         return redirect('owgame.views.addServer')
 
